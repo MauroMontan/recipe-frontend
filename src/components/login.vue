@@ -68,7 +68,7 @@
           >register
           <v-icon right dark> mdi-account </v-icon>
         </v-btn>
-        <h4  class="red--text" v-if="validCredentials===false">
+        <h4 class="red--text" v-if="validCredentials === false">
           cannot validate your credentials
         </h4>
       </v-layout>
@@ -127,16 +127,19 @@ export default {
         .then((r) => {
           this.succes = false;
           this.dialog = false;
-          this.validCredentials =true;
+          this.validCredentials = true;
           this.buttonColor = "#50fa7b";
           this.$store.commit("setLoginStatus", true);
           this.$store.commit("setCurrentToken", r.data.access_token);
           this.$store.commit("setCurrentKey", r.data.user.name);
+          if (this.$router.currentRoute.path !== "/") {
+            this.$router.next("/");
+          }
         })
         .catch(() => {
           this.succes = false;
           this.buttonColor = "red";
-          this.validCredentials =false;
+          this.validCredentials = false;
         });
     },
     logOut() {

@@ -122,6 +122,9 @@ export default {
         })
         .then(() => {
           this.succes = false;
+          if (this.$router.currentRoute.path !== "/") {
+            this.$router.replace("/");
+          }
         })
         .catch((err) => {
           console.log(err);
