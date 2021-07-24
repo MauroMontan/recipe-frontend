@@ -171,7 +171,7 @@
               <v-list-item-content>
                 <div
                   justify
-                  style="position:absolute; margin-bottom: 100px"
+                  style="position: absolute; margin-bottom: 100px"
                   class="text-h7 mr-6 pa-2"
                 >
                   {{ item.recipie_name }}
@@ -203,7 +203,14 @@
             </v-list-item>
 
             <v-card-actions>
-              <v-btn @click="delete_recipie(item.key, i)" outlined rounded text>
+              <v-btn
+                :id="i"
+                :loading="deleteLoading"
+                @click="delete_recipie(item.key, i)"
+                outlined
+                rounded
+                text
+              >
                 <v-icon color="red" dark> mdi-delete </v-icon></v-btn
               >
               <v-btn
@@ -240,6 +247,7 @@
 import axios from "axios";
 export default {
   data: () => ({
+    deleteLoading: false,
     loading: false,
     editPage: false,
     recipie_key: "",
@@ -314,6 +322,8 @@ export default {
       });
     },
     delete_recipie(recipie_key, index) {
+
+      this.deleteLoading = true;
       let headersList = {
         Accept: "*/*",
         "Content-Type": "application/json",
@@ -326,8 +336,8 @@ export default {
         data: { key: recipie_key },
       };
 
-      axios.request(reqOptions).then((response) => {
-        console.log(response.data);
+      axios.request(reqOptions).then(() => {
+        this.deleteLoading = false;
         this.recipies = this.recipies.filter((recipie_key, i) => i != index);
       });
     },

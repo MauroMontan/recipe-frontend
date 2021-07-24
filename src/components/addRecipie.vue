@@ -1,5 +1,5 @@
 <template>
-  <v-dialog dark overlay-color="#00D2FF61" width="730">
+  <v-dialog v-model="dialog" dark overlay-color="#00D2FF61" width="730">
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         fixed
@@ -132,7 +132,7 @@
           hide-text
         ></v-color-picker>
 
-        <v-btn class="mx-2" color="success" @click="submit" fab dark>
+        <v-btn :loading="loading" class="mx-2" color="success" @click="submit" fab dark>
           <v-icon large color="warning" dark> mdi-content-save </v-icon>
         </v-btn>
       </v-row>
@@ -144,6 +144,8 @@
 import axios from "axios";
 export default {
   data: () => ({
+    loading:false,
+    dialog: false,
     color: "",
     recipie_name: "",
     author: "",
@@ -154,6 +156,7 @@ export default {
   }),
   methods: {
     submit() {
+      this.loading =true;
       let headersList = {
         Authorization: "Bearer " + this.$store.state.currentToken,
         "Content-Type": "application/json",
@@ -174,8 +177,10 @@ export default {
           card_color: this.color,
         },
       };
-      axios.request(reqOptions).then(function (response) {
+      axios.request(reqOptions).then((response) => {
         console.log(response.data);
+        this.loading = false;
+        this.dialog = false;
       });
     },
   },
