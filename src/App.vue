@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background-color:#44475a" id="inspire">
+  <v-app style="background-color: #44475a" id="inspire">
     <v-navigation-drawer dark v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
@@ -53,22 +53,18 @@ export default {
     items: [
       { title: "Home", icon: "mdi-home", to: "/" },
       { title: "My Recipies", icon: "mdi-food", to: "/recipies" },
-      { title: "Configuration", icon: "mdi-hammer-screwdriver", to: "/config" },
       { title: "About", icon: "mdi-help-box", to: "/about" },
-     
     ],
     right: null,
   }),
 
   computed: {
     loginStatus() {
+      console.log(this.$store.state.isLogin);
       return this.$store.state.isLogin;
     },
   },
   mounted() {
-    if (this.$store.getters.getCurrentToken !== "") {
-      this.$store.commit("setLoginStatus", true);
-    }
     if (this.$store.getters.getCurrentToken === "") {
       this.$store.commit("setLoginStatus", false);
     }
