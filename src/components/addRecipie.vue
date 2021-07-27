@@ -121,6 +121,7 @@
       </v-row>
 
       <v-row justify="space-around" align="center">
+        <v-file-input accept="image/png" v-model="dish_picture" />
         <v-color-picker
           style="height: 81px"
           class="mx-2"
@@ -131,8 +132,14 @@
           hide-mode-switch
           hide-text
         ></v-color-picker>
-
-        <v-btn :loading="loading" class="mx-2" color="success" @click="submit" fab dark>
+        <v-btn
+          :loading="loading"
+          class="mx-2"
+          color="success"
+          @click="submit"
+          fab
+          dark
+        >
           <v-icon large color="warning" dark> mdi-content-save </v-icon>
         </v-btn>
       </v-row>
@@ -144,7 +151,8 @@
 import axios from "axios";
 export default {
   data: () => ({
-    loading:false,
+    dish_picture:null,
+    loading: false,
     dialog: false,
     color: "",
     recipie_name: "",
@@ -156,12 +164,15 @@ export default {
   }),
   methods: {
     submit() {
-      this.loading =true;
+      let formdata = new FormData();
+      console.log(this.dish_picture);
+      this.loading = true;
       let headersList = {
         Authorization: "Bearer " + this.$store.state.currentToken,
         "Content-Type": "application/json",
       };
 
+      
       let reqOptions = {
         url: "https://mauroapi.deta.dev/recipies/",
         method: "POST",
@@ -175,6 +186,7 @@ export default {
           ingredients: this.ingredients,
           directions: this.directions,
           card_color: this.color,
+          picture_name: this.dish_picture.name,
         },
       };
       axios.request(reqOptions).then((response) => {
@@ -182,6 +194,25 @@ export default {
         this.loading = false;
         this.dialog = false;
       });
+      
+      formdata.append("file",this.dish_picture);
+
+      const config2 = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      axios
+        .post(
+          "https://mauroapi.deta.dev/recipies/dish-picture",
+          formdata,
+          config2
+        )
+        .then((response) => {
+          console.log("img added");
+          console.log(response);
+        });
     },
   },
 };

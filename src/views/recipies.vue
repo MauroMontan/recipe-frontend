@@ -198,7 +198,7 @@
                 lazy-src="https://picsum.photos/id/11/10/6"
                 max-height="290"
                 max-width="140"
-                src="https://lacocinadefrabisa.lavozdegalicia.es/wp-content/uploads/2014/11/merluza.jpg"
+                src="https://mauroapi.deta.dev/recipies/dishes/cajacorrugada.png"
               ></v-img>
             </v-list-item>
 
