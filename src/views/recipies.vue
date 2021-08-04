@@ -1,13 +1,7 @@
 <template>
-  <v-container
-    style="max-width: 700px; border-radius: 16px"
-    fill-height
-    grid-list-md
-    text-xs-center
-    app
-  >
+  <v-container style="border-radius: 16px" fill-height grid-list-md fluid app>
     <v-dialog style="border-radius: 25px" v-model="editPage" width="700">
-      <v-card elevation="24" class="pa-3" dark style="border-radius: 25px">
+      <v-card elevation="0" dark style="border-radius: 25px">
         <v-row dense>
           <v-col cols="12" sm="7" lg="7" md="7">
             <v-text-field
@@ -146,100 +140,73 @@
         size="64"
       ></v-progress-circular>
     </v-overlay>
-    <v-layout row wrap align-center>
-      <v-flex class="mb-0" xs12 md12>
-        <v-list
-          color="#44475a"
-          style="max-height: 2980px; min-height: 100px; border-radius: 25px"
-          class="overflow-y-auto"
+
+    <v-row dense>
+      <v-col
+        v-for="(item, i) in recipies"
+        :key="i"
+        cols="12"
+        md="4"
+        xs="12"
+        sm="12"
+      >
+        <v-card
+          style="border-radius: 25px"
+          class="pa-3 mb-5"
           dark
-          rounded
-          flat
+          elevation="12"
+          :key="i"
+          :color="item.card_color"
         >
-          <v-card
-            style="border-radius: 25px"
-            class="pa-1 mb-5 mx-auto"
-            outline
-            dark
-            elevation="11"
-            height="226"
-            v-for="(item, i) in recipies"
-            :key="i"
-            :color="item.card_color"
-          >
-            <v-list-item three-line>
-              <v-list-item-content>
-                <div
-                  justify
-                  style="position: absolute; margin-bottom: 100px"
-                  class="text-h7 mr-6 pa-2"
-                >
-                  {{ item.recipie_name }}
-                </div>
-                <v-list-item-title class="text-h7 mb-0">
-                  {{ item.recipie_author }}
-                </v-list-item-title>
-                <v-list-item-subtitle
-                  >time to prepare:
-                  {{ item.prepare_time }}
-                  time</v-list-item-subtitle
-                >
-                <v-list-item-subtitle
-                  >time to cook:
-                  {{ item.cook_time }}
-                  time</v-list-item-subtitle
-                >
-              </v-list-item-content>
+          <div class="text-overline ml-4 mb-4">
+            {{ item.author }}
+          </div>
 
-              <v-img
-                class="mt-12"
-                fluid
-                style="border-radius: 16px"
-                lazy-src="https://picsum.photos/id/11/10/6"
-                max-height="290"
-                max-width="140"
-                src="https://mauroapi.deta.dev/recipies/dishes/cajacorrugada.png"
-              ></v-img>
-            </v-list-item>
+          <v-list-item-title class="text-h5 ml-4 mb-1">
+            {{ item.recipie_name }}
+          </v-list-item-title>
+          <v-card-text>
+            <h3>time to prepare: {{ item.prepare_time }}</h3>
+            <h3>time to cook: {{ item.cook_time }}</h3>
+          </v-card-text>
 
-            <v-card-actions>
-              <v-btn
-                :id="i"
-                :loading="deleteLoading"
-                @click="delete_recipie(item.key, i)"
-                outlined
-                rounded
-                text
-              >
-                <v-icon color="red" dark> mdi-delete </v-icon></v-btn
-              >
-              <v-btn
-                @click="
-                  openDialog(
-                    item.recipie_name,
-                    item.card_color,
-                    item.author,
-                    item.cook_time,
-                    item.prepare_time,
-                    item.ingredients,
-                    item.directions,
-                    item.key
-                  )
-                "
-                outlined
-                rounded
-                text
-              >
-                <v-icon dark> mdi-pencil </v-icon></v-btn
-              >
-              <v-btn outlined rounded text>
-                <v-icon dark> mdi-book-open</v-icon></v-btn
-              >
-            </v-card-actions>
-          </v-card>
-        </v-list>
-      </v-flex>
-    </v-layout>
+          <v-card-actions>
+            <v-btn
+              :id="i"
+              :loading="deleteLoading"
+              @click="delete_recipie(item.key, i)"
+              outlined
+              rounded
+              text
+            >
+              <v-icon color="red" dark> mdi-delete </v-icon></v-btn
+            >
+            <v-btn
+              @click="
+                openDialog(
+                  item.recipie_name,
+                  item.card_color,
+                  item.author,
+                  item.cook_time,
+                  item.prepare_time,
+                  item.ingredients,
+                  item.directions,
+                  item.key
+                )
+              "
+              outlined
+              rounded
+              text
+            >
+              <v-icon dark> mdi-pencil </v-icon></v-btn
+            >
+            <v-btn outlined rounded text>
+              <v-icon dark> mdi-book-open</v-icon></v-btn
+            >
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -316,13 +283,11 @@ export default {
 
       axios.request(reqOptions).then((response) => {
         console.log(response.data);
-
         this.editPage = false;
         this.loading = false;
       });
     },
     delete_recipie(recipie_key, index) {
-
       this.deleteLoading = true;
       let headersList = {
         Accept: "*/*",
@@ -358,9 +323,11 @@ export default {
           console.log(element);
         });
         this.overlay = false;
+     
       })
       .catch((err) => {
         console.log(err);
+        this.overlay = false;
       });
   },
 };

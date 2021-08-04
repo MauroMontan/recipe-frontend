@@ -121,7 +121,6 @@
       </v-row>
 
       <v-row justify="space-around" align="center">
-        <v-file-input accept="image/png" v-model="dish_picture" />
         <v-color-picker
           style="height: 81px"
           class="mx-2"
@@ -151,7 +150,6 @@
 import axios from "axios";
 export default {
   data: () => ({
-    dish_picture:null,
     loading: false,
     dialog: false,
     color: "",
@@ -164,15 +162,12 @@ export default {
   }),
   methods: {
     submit() {
-      let formdata = new FormData();
-      console.log(this.dish_picture);
       this.loading = true;
       let headersList = {
         Authorization: "Bearer " + this.$store.state.currentToken,
         "Content-Type": "application/json",
       };
 
-      
       let reqOptions = {
         url: "https://mauroapi.deta.dev/recipies/",
         method: "POST",
@@ -186,33 +181,13 @@ export default {
           ingredients: this.ingredients,
           directions: this.directions,
           card_color: this.color,
-          picture_name: this.dish_picture.name,
         },
       };
-      axios.request(reqOptions).then((response) => {
-        console.log(response.data);
+      axios.request(reqOptions).then(() => {
         this.loading = false;
         this.dialog = false;
       });
-      
-      formdata.append("file",this.dish_picture);
-
-      const config2 = {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      };
-
-      axios
-        .post(
-          "https://mauroapi.deta.dev/recipies/dish-picture",
-          formdata,
-          config2
-        )
-        .then((response) => {
-          console.log("img added");
-          console.log(response);
-        });
+    
     },
   },
 };

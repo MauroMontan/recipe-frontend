@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     isLogin: false,
     currentToken: localStorage.getItem("user-token"),
-    currentKey: localStorage.getItem("key")
+    currentKey: localStorage.getItem("key"),
+
   },
   mutations: {
     setLoginStatus(state, payload) {

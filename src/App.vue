@@ -4,7 +4,7 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6"> Menu</v-list-item-title>
-          <v-list-item-subtitle>  </v-list-item-subtitle>
+          <v-list-item-subtitle> </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
@@ -65,11 +65,13 @@ export default {
     },
   },
   mounted() {
-    if (this.$store.getters.getCurrentToken === "") {
-      this.$store.commit("setLoginStatus", false);
-    }
-    if (this.$store.state.currentToken !== "" || null) {
+    const token = localStorage.getItem("user-token");
+
+    if (token) {
       this.$store.commit("setLoginStatus", true);
+      console.log(this.$store.state.currentToken);
+    } else {
+      this.$store.commit("setLoginStatus", false);
     }
   },
 };
