@@ -1,7 +1,7 @@
 <template>
   <v-container style="border-radius: 16px" fill-height grid-list-md fluid app>
     <v-dialog style="border-radius: 25px" v-model="editPage" width="700">
-      <v-card elevation="0" dark style="border-radius: 25px">
+      <v-card elevation="0" class="pa-3" dark style="border-radius: 25px">
         <v-row dense>
           <v-col cols="12" sm="7" lg="7" md="7">
             <v-text-field
