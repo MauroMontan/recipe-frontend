@@ -4,7 +4,7 @@
       <v-btn
         fixed
         elevation="17"
-        large
+        x-large
         fab
         dark
         bottom
@@ -186,8 +186,8 @@ export default {
       axios.request(reqOptions).then(() => {
         this.loading = false;
         this.dialog = false;
+        
       });
-    
     },
   },
 };

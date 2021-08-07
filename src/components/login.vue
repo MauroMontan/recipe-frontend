@@ -16,10 +16,11 @@
         outlined
         v-bind="attrs"
         v-on="on"
-        >log in</v-btn
       >
-      <v-btn @click="logOut" v-else dark height="35" width="80" rounded outlined
-        >log out
+        <v-icon dark> mdi-login-variant </v-icon></v-btn
+      >
+      <v-btn @click="logOut" v-else dark outlined rounded>
+        <v-icon dark> mdi-logout-variant </v-icon>
       </v-btn>
     </template>
 

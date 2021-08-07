@@ -1,9 +1,9 @@
 <template>
-  <v-app style="background-color: #44475a" id="inspire">
+  <v-app style="background-color: #121212" id="inspire">
     <v-navigation-drawer dark v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6"> Menu</v-list-item-title>
+          <v-list-item-title class="text-h6">easy Recipe</v-list-item-title>
           <v-list-item-subtitle> </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -24,12 +24,12 @@
     </v-navigation-drawer>
 
     <v-app-bar dark app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title
-        >easy recipie <v-icon dark> mdi-carrot </v-icon></v-toolbar-title
+      <v-app-bar-nav-icon @click="drawer = !drawer"
+        ><v-icon dark> mdi-sort-variant </v-icon></v-app-bar-nav-icon
       >
-
+   <v-spacer></v-spacer>
+   
+      <v-toolbar-title>{{this.$router.currentRoute.name}}</v-toolbar-title>
       <v-spacer></v-spacer>
 
       <login />

@@ -19,7 +19,7 @@ const routes = [
   },
   {
     path: "/recipies",
-    name: "recipies",
+    name: "recipes",
     component: recipies,
     beforeEnter: (to, from, next) => {
       if (store.getters.getLoggedStatus == false) {
