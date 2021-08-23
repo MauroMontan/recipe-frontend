@@ -20,13 +20,13 @@
             <v-col cols="12" sm="7" lg="7" md="7">
               <v-text-field
                 prepend-icon="mdi-bowl"
-                label="recipie name"
+                label="recipe name"
                 filled
                 dense
                 v-model="recipie_name"
                 dark
                 rounded
-                placeholder="type recipie name"
+                placeholder="type recipe name"
                 style="border-radius: 25px"
                 clear-icon="mdi-close-circle"
                 clearable
@@ -35,13 +35,13 @@
             <v-col cols="12" sm="5" lg="5" md="5">
               <v-text-field
                 prepend-icon="mdi-account"
-                label="recipie author"
+                label="recipe author"
                 filled
                 v-model="author"
                 dense
                 dark
                 rounded
-                placeholder="type recipie author"
+                placeholder="type recipe author"
                 style="border-radius: 25px"
                 clearable
                 clear-icon="mdi-close-circle"
@@ -113,7 +113,7 @@
                 clearable
                 rounded
                 clear-icon="mdi-close-circle"
-                placeholder="give the directions of your recipie"
+                placeholder="give the directions of your recipe"
                 style="border-radius: 25px"
                 dark
               />
