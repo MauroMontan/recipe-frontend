@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" dark overlay-color="#00D2FF61" width="730">
+  <v-dialog v-model="dialog" dark  width="730">
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         fixed
