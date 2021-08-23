@@ -1,10 +1,21 @@
 <template>
-  <v-app style="background-color: #121212" id="inspire">
+  <v-app
+    style="
+      background-color: #121212;
+      background-image: url('https://www.transparenttextures.com/patterns/food.png');
+    "
+    id="inspire"
+  >
     <v-navigation-drawer
-      style="background-color: #272727; border: none"
+      style="
+        background-color: #272727;
+        border: none;
+
+      "
       dark
       v-model="drawer"
       app
+      
     >
       <v-list-item>
         <v-list-item-content>
@@ -28,7 +39,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar dense dark app>
+    <v-app-bar flat dense dark app>
       <v-app-bar-nav-icon @click="drawer = !drawer"
         ><v-icon dark> mdi-sort-variant </v-icon></v-app-bar-nav-icon
       >
@@ -43,7 +54,7 @@
     <v-main>
       <router-view></router-view>
     </v-main>
-    <v-footer app dark padless dense>
+    <v-footer fixed app dark padless dense>
       <v-col class="text-center" cols="12">
         2021— <strong>Mauro Montaño</strong>
       </v-col>
@@ -58,7 +69,7 @@ import addRecipie from "../src/components/addRecipie.vue";
 export default {
   components: { login, addRecipie },
   data: () => ({
-    drawer: null,
+    drawer: false,
     items: [
       { title: "Home", icon: "mdi-home", to: "/" },
       { title: "My Recipies", icon: "mdi-food", to: "/recipies" },
@@ -87,6 +98,7 @@ export default {
 </script>
 
 <style>
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 ::-webkit-scrollbar {
   display: none;
 }

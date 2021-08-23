@@ -172,7 +172,7 @@
           dark
           elevation="12"
           max-height="400"
-          color="rgba(18, 18, 18, 0.91)"
+       
           :key="i"
         >
           <v-layout column align-center>

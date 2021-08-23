@@ -8,7 +8,7 @@
     <h1
       class="mt-4 mb-2"
       align="center"
-      style="border-radius: 15px; color: #72787e"
+      style="border-radius: 15px; color:#ff0059"
     >
       Enjoy cooking!
     </h1>
@@ -17,10 +17,11 @@
         <v-row style="display: flex" dense>
           <v-col cols="12" md="6" xs="12" sm="12">
             <v-card
-              style="border-radius: 15px; border: dashed"
+              style="border-radius: 15px"
               class="pa-5 mb-5 mt-10 mx-16"
-              color="rgba(18, 18, 18, 0.9)"
+              color="rgba(39, 39, 39, 0.8)"
               dark
+              height="300"
               elevation="20"
             >
               <h2 align="center">Store your own recipes</h2>
@@ -28,12 +29,13 @@
                 Store any recipe you want, anywhere, anytime !
               </h4>
               <v-img
-                max-width="130"
+                max-width="140"
                 style="
                   display: block;
                   margin-left: auto;
                   margin-right: auto;
-                  width: 50%;
+                  margin-top:30px;
+                  width: 60%;
                 "
                 src="../assets/undraw_cooking_lyxy.svg"
               />
@@ -45,7 +47,8 @@
               style="border-radius: 15px"
               class="pa-5 mb-9 mt-10 mx-16"
               dark
-              color="rgba(18, 18, 18, 0.9)"
+              height="300"
+              color="rgba(39, 39, 39, 0.8)"
               elevation="12"
             >
               <h2 align="center">Add your ideas</h2>
@@ -59,6 +62,7 @@
                   display: block;
                   margin-left: auto;
                   margin-right: auto;
+                  margin-top:30px;
                   width: 50%;
                 "
                 src="../assets/undraw_Add_files_re_v09g.svg"
@@ -81,3 +85,10 @@ export default {
   },
 };
 </script>
+
+<style>
+body {
+  background-image: url("../assets/undraw_Hamburger_8ge6.svg");
+  background-repeat: repeat-y;
+}
+</style>
