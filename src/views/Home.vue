@@ -1,5 +1,5 @@
 <template>
-  <v-container grid-list-md text-xs-center app fluid>
+ 
     <v-container class="spacing-playground pa-2 mx-7" app>
       <v-img
         max-width="400"
@@ -74,7 +74,7 @@
         </v-flex>
       </v-layout>
     </v-container>
-  </v-container>
+
 </template>
 
 <script>
