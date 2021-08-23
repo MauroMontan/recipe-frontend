@@ -1,6 +1,11 @@
 <template>
   <v-app style="background-color: #121212" id="inspire">
-    <v-navigation-drawer dark v-model="drawer" app>
+    <v-navigation-drawer
+      style="background-color: #272727; border: none"
+      dark
+      v-model="drawer"
+      app
+    >
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">easy Recipe</v-list-item-title>
@@ -23,13 +28,13 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar dark app>
+    <v-app-bar dense dark app>
       <v-app-bar-nav-icon @click="drawer = !drawer"
         ><v-icon dark> mdi-sort-variant </v-icon></v-app-bar-nav-icon
       >
-   <v-spacer></v-spacer>
-   
-      <v-toolbar-title>{{this.$router.currentRoute.name}}</v-toolbar-title>
+      <v-spacer></v-spacer>
+
+      <v-toolbar-title>{{ this.$router.currentRoute.name }}</v-toolbar-title>
       <v-spacer></v-spacer>
 
       <login />
@@ -38,7 +43,11 @@
     <v-main>
       <router-view></router-view>
     </v-main>
-
+    <v-footer app dark padless dense>
+      <v-col class="text-center" cols="12">
+        2021— <strong>Mauro Montaño</strong>
+      </v-col>
+    </v-footer>
     <addRecipie v-if="loginStatus" />
   </v-app>
 </template>
