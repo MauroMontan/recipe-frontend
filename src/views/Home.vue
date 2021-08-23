@@ -34,7 +34,7 @@
                   display: block;
                   margin-left: auto;
                   margin-right: auto;
-                  margin-top:30px;
+                  margin-top:20px;
                   width: 60%;
                 "
                 src="../assets/undraw_cooking_lyxy.svg"
@@ -62,7 +62,7 @@
                   display: block;
                   margin-left: auto;
                   margin-right: auto;
-                  margin-top:30px;
+                  margin-top:20px;
                   width: 50%;
                 "
                 src="../assets/undraw_Add_files_re_v09g.svg"
