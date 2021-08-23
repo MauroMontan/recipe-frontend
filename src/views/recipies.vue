@@ -1,5 +1,5 @@
 <template>
-  <v-container style="border-radius: 16px" grid-list-md fluid app>
+  <v-container  style="border-radius: 16px" grid-list-md fluid app>
     <v-img
       v-if="recipies.length !== 0 && overlay === false"
       max-width="400"

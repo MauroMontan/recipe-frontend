@@ -2,10 +2,14 @@
   <v-container grid-list-md text-xs-center app fluid>
     <v-img
       max-width="400"
-      style="position: fixed; bottom: 50px; width: 700px;transform:scaleX(-1)"
+      style="position: fixed; bottom: 55px; width: 700px; transform: scaleX(-1)"
       src="../assets/undraw_Hamburger_8ge6.svg"
     />
-    <h1 class="mt-4 mb-2" align="center" style="color: #72787e">
+    <h1
+      class="mt-4 mb-2"
+      align="center"
+      style="border-radius: 15px; color: #72787e"
+    >
       Enjoy cooking!
     </h1>
     <v-layout row wrap align-center>
@@ -13,10 +17,11 @@
         <v-row style="display: flex" dense>
           <v-col cols="12" md="6" xs="12" sm="12">
             <v-card
-              style="border-radius: 15px"
-              class="pa-5 mb-5 mt-8"
+              style="border-radius: 15px; border: dashed"
+              class="pa-5 mb-5 mt-10 mx-16"
+              color="rgba(18, 18, 18, 0.9)"
               dark
-              elevation="18"
+              elevation="20"
             >
               <h2 align="center">Store your own recipes</h2>
               <h4 align="center">
@@ -36,9 +41,11 @@
           </v-col>
           <v-col cols="12" md="6" xs="12" sm="12">
             <v-card
+              @click="sayHi"
               style="border-radius: 15px"
-              class="pa-5 mb-9 mt-8"
+              class="pa-5 mb-9 mt-10 mx-16"
               dark
+              color="rgba(18, 18, 18, 0.9)"
               elevation="12"
             >
               <h2 align="center">Add your ideas</h2>
@@ -67,5 +74,10 @@
 <script>
 export default {
   data: () => ({}),
+  methods: {
+    sayHi() {
+      alert("hello");
+    },
+  },
 };
 </script>
