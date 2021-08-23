@@ -18,10 +18,10 @@
           <v-col cols="12" md="6" xs="12" sm="12">
             <v-card
               style="border-radius: 15px"
-              class="pa-5 mb-5 mt-10 mx-16"
+              class="pa-5 mb-4 mt-10 mx-16"
               color="rgba(39, 39, 39, 0.8)"
               dark
-              height="300"
+             
               elevation="20"
             >
               <h2 align="center">Store your own recipes</h2>
@@ -45,9 +45,9 @@
             <v-card
               @click="sayHi"
               style="border-radius: 15px"
-              class="pa-5 mb-9 mt-10 mx-16"
+              class="pa-5 mb-4 mt-10 mx-16"
               dark
-              height="300"
+             
               color="rgba(39, 39, 39, 0.8)"
               elevation="12"
             >
