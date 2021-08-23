@@ -6,7 +6,7 @@
       src="../assets/undraw_Hamburger_8ge6.svg"
     />
     <h1
-      class="mt-4 mb-2"
+      class="mt-2 mb-2"
       align="center"
       style="border-radius: 15px; color:#ff0059"
     >
@@ -18,7 +18,7 @@
           <v-col cols="12" md="6" xs="12" sm="12">
             <v-card
               style="border-radius: 15px"
-              class="pa-5 mb-4 mt-10 mx-10"
+              class="pa-5 mb-4 mt-2 mx-10"
               color="rgba(39, 39, 39, 0.8)"
               dark
              
