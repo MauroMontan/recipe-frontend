@@ -2,7 +2,7 @@
   <v-container grid-list-md text-xs-center app fluid>
     <v-img
       max-width="400"
-      style="position: fixed; bottom: 0; width: 700px;transform:scaleX(-1)"
+      style="position: fixed; bottom: 50px; width: 700px;transform:scaleX(-1)"
       src="../assets/undraw_Hamburger_8ge6.svg"
     />
     <h1 class="mt-4 mb-2" align="center" style="color: #72787e">
